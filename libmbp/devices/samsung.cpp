@@ -351,6 +351,12 @@ static void addGalaxySSeriesPhones(std::vector<Device *> *devices)
     device->setDataBlockDevs({ QCOM_USERDATA, "/dev/block/mmcblk0p26" });
     device->setBootBlockDevs({ QCOM_BOOT, "/dev/block/mmcblk0p15" });
     device->setRecoveryBlockDevs({ QCOM_RECOVERY, "/dev/block/mmcblk0p14" });
+    device->twOptions()->supported = true;
+    device->twOptions()->flags = Device::FLAG_TW_QCOM_RTC_FIX | Device::FLAG_TW_HAS_DOWNLOAD_MODE;
+    device->twOptions()->pixelFormat = Device::TwPixelFormat::RGBX_8888;
+    device->twOptions()->brightnessPath = "/sys/devices/mdp.0/qcom,mdss_fb_primary.191/leds/lcd-backlight/brightness";
+    device->twOptions()->maxBrightness = 255;
+    device->twOptions()->defaultBrightness = 162;
     devices->push_back(device);
 
     // Samsung Galaxy S 5 mini (Qcom)
@@ -603,7 +609,7 @@ static void addOtherSeriesPhones(std::vector<Device *> *devices)
     device->setBootBlockDevs({ "/dev/block/mmcblk0p5" });
     device->setRecoveryBlockDevs({ "/dev/block/mmcblk0p6" });
     devices->push_back(device);
-    
+
     // Samsung Galaxy V (Ace 4 Lite)
     device = new Device();
     device->setId("vivalto3g");
