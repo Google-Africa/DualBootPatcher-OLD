@@ -74,6 +74,7 @@ set(MBP_DEVICE_SOURCES
     devices/pantech.cpp
     devices/samsung.cpp
     devices/sony.cpp
+    devices/mtk64.cpp
     devices/wileyfox.cpp
     devices/xiaomi.cpp
 )
