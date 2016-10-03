@@ -69,12 +69,12 @@ set(MBP_DEVICE_SOURCES
     devices/lenovo.cpp
     devices/lg.cpp
     devices/motorola.cpp
+    devices/mtk64.cpp
     devices/nexus.cpp
     devices/oneplus.cpp
     devices/pantech.cpp
     devices/samsung.cpp
     devices/sony.cpp
-    devices/mtk64.cpp
     devices/wileyfox.cpp
     devices/xiaomi.cpp
 )
