@@ -39,6 +39,7 @@
 #include "devices/lenovo.h"
 #include "devices/lg.h"
 #include "devices/motorola.h"
+#include "devices/mtk64.h"
 #include "devices/nexus.h"
 #include "devices/oneplus.h"
 #include "devices/pantech.h"
@@ -215,6 +216,7 @@ void PatcherConfig::Impl::loadDefaultDevices()
     addLenovoDevices(&devices);
     addLgDevices(&devices);
     addMotorolaDevices(&devices);
+    addMtk64Devices(&devices);
     addNexusDevices(&devices);
     addPantechDevices(&devices);
     addOnePlusDevices(&devices);
