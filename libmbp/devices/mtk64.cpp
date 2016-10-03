@@ -28,17 +28,30 @@ void addMtk64Devices(std::vector<Device *> *devices)
 {
     Device *device;
 
-    // Tecno Camon C8 (MT6735)
+// Tecno Camon C8
     device = new Device();
-    device->setId("TECNO-C8");
-    device->setCodenames({ "h532", "h532_a1", "h532_a2", "h532_a1_sd", "h532_a2_sd", "h532_a1_l", "h532_a1_m", "h532_a2_l", "h532_a2_m", "c8", "TECNO C8", "TECNO-C8", "rlk6735"});
-    device->setName("Tecno Camon C8");
-    device->setBlockDevBaseDirs({ MTK_BASE_DIR });
-    device->setSystemBlockDevs({ MTK_SYSTEM, "/dev/block/mmcblk0p20" });
-    device->setCacheBlockDevs({ MTK_CACHE, "/dev/block/mmcblk0p21" });
-    device->setDataBlockDevs({ MTK_USERDATA, "/dev/block/mmcblk0p22" });
-    device->setBootBlockDevs({ MTK_BOOT, "/dev/block/mmcblk0p7" });
-    device->setRecoveryBlockDevs({ MTK_RECOVERY, "/dev/block/mmcblk0p8" });
+    device->setId("h352");
+    device->setArchitecture(ARCH_ARM64_V8A);
+    device->setCodenames({ "h352", "h353", "h352_a1", "h352_a2", "TECNO-C8", "c8"});
+    device->setName("Tecno C8");
+    device->setBlockDevBaseDirs({ MTK_BASE_DIR, MTK_11230000_BASE_DIR });
+    device->setSystemBlockDevs({ MTK_SYSTEM, MTK_11230000_SYSTEM,
+        "/dev/block/mmcblk0p20" });
+    device->setCacheBlockDevs({ MTK_CACHE, MTK_11230000_CACHE,
+        "/dev/block/mmcblk0p21" });
+    device->setDataBlockDevs({ MTK_USERDATA, MTK_11230000_USERDATA,
+        "/dev/block/mmcblk0p22" });
+    device->setBootBlockDevs({ MTK_BOOT, MTK_11230000_BOOT,
+        "/dev/block/mmcblk0p7" });
+    device->setRecoveryBlockDevs({ MTK_RECOVERY, MTK_11230000_RECOVERY,
+        "/dev/block/mmcblk0p8" });
+    device->setExtraBlockDevs({ MTK_METADATA, MTK_11230000_METADATA,
+        MTK_NVRAM, MTK_11230000_NVRAM,
+        MTK_LK, MTK_11230000_LK,
+        MTK_LOGO, MTK_11230000_LOGO,
+        MTK_PARA, MTK_11230000_PARA,
+        MTK_TEE1, MTK_11230000_TEE1,
+        MTK_TEE2, MTK_11230000_TEE2 });
     device->twOptions()->supported = true;
     device->twOptions()->graphicsBackends = { "fbdev" };
     device->twOptions()->flags = Device::FLAG_TW_GRAPHICS_FORCE_USE_LINELENGTH;
