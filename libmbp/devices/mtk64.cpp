@@ -78,13 +78,23 @@ void addMtk64Devices(std::vector<Device *> *devices)
         "/dev/block/mmcblk0p7" });
     device->setRecoveryBlockDevs({ MTK_RECOVERY, MTK_11230000_RECOVERY,
         "/dev/block/mmcblk0p8" });
-    device->setExtraBlockDevs({ MTK_METADATA, MTK_11230000_METADATA,
+    device->setExtraBlockDevs({ "/dev/block/mmcblk0boot0", MTK_PROINFO, MTK_11230000_PROINFO,
         MTK_NVRAM, MTK_11230000_NVRAM,
+        MTK_PROTECT1, MTK_11230000_PROTECT1,
+        MTK_PROTECT2, MTK_11230000_PROTECT2,
         MTK_LK, MTK_11230000_LK,
-        MTK_LOGO, MTK_11230000_LOGO,
         MTK_PARA, MTK_11230000_PARA,
-        MTK_TEE1, MTK_11230000_TEE1,
-        MTK_TEE2, MTK_11230000_TEE2 });
+        MTK_LOGO, MTK_11230000_LOGO,
+		MTK_EXPDB, MTK_11230000_EXPDB,
+        MTK_SECCFG, MTK_11230000_SECCFG,
+        MTK_OEMKEYSTORE, MTK_11230000_OEMKEYSTORE,
+        MTK_SECRO, MTK_11230000_SECRO,
+        MTK_KEYSTORE, MTK_11230000_KEYSTORE,
+		MTK_TEE1, MTK_11230000_TEE1,
+        MTK_TEE2, MTK_11230000_TEE2,
+        MTK_FRP, MTK_11230000_FRP,
+        MTK_NVDATA, MTK_11230000_NVDATA,
+        MTK_METADATA, MTK_11230000_METADATA });
     device->twOptions()->supported = true;
     device->twOptions()->graphicsBackends = { "fbdev" };
     device->twOptions()->flags = Device::FLAG_TW_GRAPHICS_FORCE_USE_LINELENGTH;
