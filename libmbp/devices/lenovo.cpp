@@ -60,6 +60,39 @@ void addLenovoDevices(std::vector<Device *> *devices)
     device->twOptions()->defaultBrightness = 162;
     device->twOptions()->cpuTempPath = "/sys/class/thermal/thermal_zone1/temp";
     devices->push_back(device);
+    
+    // Lenovo K4 Note
+    device = new Device();
+    device->setId("A7010a48");
+    device->setArchitecture(ARCH_ARM64_V8A);
+    device->setCodenames({ "A7010a48", "a7010a48", "k5fpr" });
+    device->setName("Lenovo K4 Note");
+    device->setBlockDevBaseDirs({ MTK_BASE_DIR, MTK_11230000_BASE_DIR });
+    device->setSystemBlockDevs({ MTK_SYSTEM, MTK_11230000_SYSTEM,
+        "/dev/block/mmcblk0p23" });
+    device->setCacheBlockDevs({ MTK_CACHE, MTK_11230000_CACHE,
+        "/dev/block/mmcblk0p24" });
+    device->setDataBlockDevs({ MTK_USERDATA, MTK_11230000_USERDATA,
+        "/dev/block/mmcblk0p25" });
+    device->setBootBlockDevs({ MTK_BOOT, MTK_11230000_BOOT,
+        "/dev/block/mmcblk0p7" });
+    device->setRecoveryBlockDevs({ MTK_RECOVERY, MTK_11230000_RECOVERY,
+        "/dev/block/mmcblk0p8" });
+    device->setExtraBlockDevs({ "/dev/block/mmcblk0boot0",
+        MTK_LK, MTK_11230000_LK,
+        MTK_LOGO, MTK_11230000_LOGO,
+        MTK_PARA, MTK_11230000_PARA,
+        MTK_TEE1, MTK_11230000_TEE1,
+        MTK_TEE2, MTK_11230000_TEE2,
+        MTK_UBOOT, MTK_11230000_UBOOT });
+    device->twOptions()->supported = true;
+    device->twOptions()->graphicsBackends = { "fbdev" };
+    device->twOptions()->flags = Device::FLAG_TW_GRAPHICS_FORCE_USE_LINELENGTH;
+    device->twOptions()->pixelFormat = Device::TwPixelFormat::RGBX_8888;
+    device->twOptions()->maxBrightness = 255;
+    device->twOptions()->defaultBrightness = 162;
+    device->twOptions()->cpuTempPath = "/sys/class/thermal/thermal_zone1/temp";
+    devices->push_back(device);
 
     // Lenovo Vibe Z2 Pro
     device = new Device();
