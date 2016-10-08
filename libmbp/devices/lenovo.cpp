@@ -65,7 +65,7 @@ void addLenovoDevices(std::vector<Device *> *devices)
     device = new Device();
     device->setId("A7010a48");
     device->setArchitecture(ARCH_ARM64_V8A);
-    device->setCodenames({ "A7010a48", "a7010a48", "k5fpr" });
+    device->setCodenames({ "A7010a48", "Lenovo A7010a48", "a7010a48", "Lenovo a7010a48", "k5fpr" });
     device->setName("Lenovo K4 Note");
     device->setBlockDevBaseDirs({ MTK_BASE_DIR, MTK_11230000_BASE_DIR });
     device->setSystemBlockDevs({ MTK_SYSTEM, MTK_11230000_SYSTEM,
